@@ -3,23 +3,22 @@ import './App.css';
 import { useState } from "react"
 
 function App() {
-  const [color1,setColor1] = useState("white");
-  const [color2,setColor2] = useState("balck");
+  const [isLight,setIsLight] = useState(true);
+ 
 
 
     const click = ()=>{
-        setColor1("black")
-        setColor2("white")
+        setIsLight(!isLight)
     }
 
 
   return (
     <div className="App">
-      <div style={{height:"100vh",backgroundColor:color2?color1:color2, color:color1?color2:color1}}>
+      <div className={isLight?"light":"dark"}>
 
       <div style={{display:"flex", flexDirection:"row", alignItems:"center"}}>
          <h1 style={{marginLeft:"30rem"}}>Overreacted</h1>
-        <button  onClick ={ () =>{click()}} style={{backgroundColor:"#FF0080", marginLeft:"10rem", color:color1?color2:color1}} >Toggle</button>
+        <button  onClick ={ click} style={{backgroundColor:"#FF0080", marginLeft:"10rem"}} >Toggle</button>
       </div>
 
       <div style={{}}>
